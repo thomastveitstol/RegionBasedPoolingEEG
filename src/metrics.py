@@ -338,7 +338,7 @@ def _spearman_cc(y_pred: torch.Tensor, y_true: torch.Tensor) -> float:
         y_pred: predictions with shape=(batch,) or shape=(batch, outputs)
         y_true: targets with shape=(batch,) or shape=(batch, outputs)
 
-    Returns: MSE
+    Returns: Spearman's rho
     Examples:
         >>> my_pred = torch.tensor([9, 4, 8, 14])
         >>> my_true = torch.tensor([7, 6, 5.5, 14])
