@@ -1,3 +1,7 @@
+"""
+Functions for Config file handling. The functions make it possible to e.g. have lists and other types than those
+available from the ConfigParser object
+"""
 import configparser
 from typing import Any, Dict, List, Optional, Tuple
 
