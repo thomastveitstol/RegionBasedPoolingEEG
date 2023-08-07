@@ -57,9 +57,10 @@ def to_dict(config_section: configparser.SectionProxy) -> Dict[str, Any]:
 def str_to_type(arg_str: str, arg_type: str) -> Any:
     """
     Converts string to specified type
-    :param arg_str: argument string
-    :param arg_type: desired argument type
-    :return: argument as the desired type
+    Args:
+        arg_str: argument string
+        arg_type: desired argument type
+    Returns: argument as the desired type
     Examples:
         >>> str_to_type("4.2", "float")
         4.2
