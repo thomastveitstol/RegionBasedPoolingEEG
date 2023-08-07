@@ -131,7 +131,7 @@ def str_to_optional_type(arg_str: str, arg_type: str) -> Optional[Any]:
         >>> type(str_to_optional_type("none", "int"))
         <class 'NoneType'>
     """
-    if arg_str in ["None", "none"]:
+    if arg_str in ("None", "none"):
         outputs = None
     else:
         outputs = str_to_type(arg_str=arg_str, arg_type=arg_type)
