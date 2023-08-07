@@ -13,7 +13,7 @@ def main() -> None:
     # Load electrode positions
     my_nodes_3d = CleanedChildChannelSystem().get_electrode_positions()
     my_nodes_2d = project_head_shape(my_nodes_3d)
-    my_nodes_3d = {key: value.coordinates for key, value in my_nodes_3d.items()}
+
     my_points_ = numpy.array(tuple(my_nodes_2d.values()))
     my_nodes = {f'Ch_{i}': point for i, point in enumerate(my_points_)}
 
