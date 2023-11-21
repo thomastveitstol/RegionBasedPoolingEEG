@@ -1,7 +1,6 @@
 """
 Violin plot of test results. It compares Region based pooling, spherical spline interpolation, and zero-filling
 """
-from collections import OrderedDict
 import configparser
 from configparser import ConfigParser
 import os
@@ -110,8 +109,10 @@ def main() -> None:
                 else:
                     peak_performances[label] = {model: [test_performance]}
 
-    # Sort the dict
-    data = OrderedDict(sorted(peak_performances.items()))  # type: ignore
+    # Sort the dict (I know that this is a little too hard-coded, but I really have to fix this plot for the paper)
+    data = {"Test (c=32)": peak_performances["Test (c=32)"],
+            "Test (c=65)": peak_performances["Test (c=65)"],
+            "Test (c=129)": peak_performances["Test (c=129)"]}
 
     # Convert to pandas dataframe
     data = _to_dataframe(performance=data, metric=metric_to_plot.upper())
