@@ -146,7 +146,7 @@ def _get_hyperparameters(path: str, hyperparameters: Tuple[str, ...]) -> Dict[st
 def main() -> None:
     # Set the path where the plots are going to be stored. It must contain four folders, named 'continuous', 'mean',
     # 'shared_rocket', and 'connected'
-    save_path = "/home/thomas/Documents/Paper1/grid_search"
+    save_path = "/home/thomas/Documents/Paper1/grid_search_after_review"
 
     # Which model to plot. Set to 'continuous', 'mean', 'shared_rocket', or 'connected', depending on which results you
     # want to plot
@@ -200,7 +200,7 @@ def main() -> None:
     # Convert to pandas dataframe
     data = {ch_system: pandas.DataFrame(data_row) for ch_system, data_row in data_samples.items()}
 
-    font_size = 50
+    font_size = 47
 
     # Plot all channel systems
     for ch_system, df in data.items():
@@ -209,8 +209,8 @@ def main() -> None:
 
         # Create the heatmap with numerical values
         fig, ax = pyplot.subplots(figsize=(26, 13))
-        seaborn.heatmap(heatmap_data, annot=True, fmt=".2%", cmap="coolwarm", vmin=0.86, vmax=0.98,
-                        cbar_kws={"label": "Model Performance"}, ax=ax, annot_kws={"size": font_size})
+        seaborn.heatmap(heatmap_data, annot=True, fmt=".2%", cmap="viridis", vmin=0.84, vmax=0.98,
+                        cbar_kws={"label": "Model Performance"}, ax=ax, annot_kws={"size": font_size+3})
 
         # Set the font size of the color bar labels
         cbar = ax.collections[0].colorbar
@@ -218,11 +218,11 @@ def main() -> None:
         cbar.ax.set_ylabel(performance_metric.upper(), fontsize=font_size)
 
         # Set axis labels and title
-        ax.set_xlabel("Number of channel splits", fontsize=font_size)
+        ax.set_xlabel("Number of montage splits", fontsize=font_size)
         ax.set_ylabel("Minimum number of electrodes", fontsize=font_size)
         ax.tick_params(labelsize=font_size)
         ax.tick_params("y", labelsize=font_size)
-        fig.suptitle(title, fontsize=font_size+5, fontweight="bold")
+        fig.suptitle(title, fontsize=55, fontweight="bold")
         ax.set_title(f"Model Performance, {ch_system}", fontsize=font_size)
 
         num_channels = re.split("[()]", ch_system)[1][2:]
