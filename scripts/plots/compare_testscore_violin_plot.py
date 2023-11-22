@@ -131,6 +131,7 @@ def main() -> None:
 
     # Cosmetics
     ax.tick_params(labelsize=font_size, rotation=-0)
+    ax.grid(axis="y")
     ax.set_title(f"Sex Prediction with Varied Numbers of Channels", fontsize=font_size+5)
     ax.set_ylim((0.65, 1))
     ax.xaxis.label.set_size(font_size)
